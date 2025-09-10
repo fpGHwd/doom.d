@@ -89,7 +89,7 @@
 (defvar +wd/telegram-cmb-chat-id (password-store-get "telegram/TELEGRAM_CMB_CHAT_ID"))
 (defun +wd/telega-chat-update-function (chat)
   "When CHAT update, then do something."
-  (let ((+wd/cmb-chat-id -1002306417445))
+  (let ((+wd/cmb-chat-id (string-to-number +wd/telegram-cmb-chat-id)))
     (when (= +wd/cmb-chat-id (plist-get chat :id))
       (let* ((chat-text (get-value-by-key-sequence chat '(:last_message :content :text :text)))
              (chat-date (get-value-by-key-sequence chat '(:last_message :date)))
